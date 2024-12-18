@@ -13,14 +13,14 @@ const App = () => {
   };
 
   const handleLottoClick = () => {
-    const numbers = new Set();
+    const numbers = new Set<number>();
 
     while (numbers.size < 7) {
       const randomNumber = Math.floor(Math.random() * 50) + 1;
       numbers.add(randomNumber);
     }
 
-    setLottoNum([...numbers]);
+    setLottoNum(Array.from(numbers));
   };
 
   const handleIncreaseClick = () => {
@@ -32,7 +32,7 @@ const App = () => {
       <h2>Light Toggle</h2>
       <LightToggle handleLightClick={handleLightClick} />
       {isLightOn ? (
-        <div style={{ background: "#ffe4e1" }}>
+        <div style={{ backgroundColor: "#ffe4e1" }}>
           Change this background color using the style attribute
         </div>
       ) : (
